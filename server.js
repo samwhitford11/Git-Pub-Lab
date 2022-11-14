@@ -12,7 +12,7 @@ app.get('/', (req,res) =>{
 
 app.get('/drinks', (req,res) => {
 console.log(drinks)
-    res.send(drinks)
+    res.render('drinks_index.ejs')
 })
 
 
