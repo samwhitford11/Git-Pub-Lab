@@ -11,9 +11,14 @@ app.get('/', (req,res) =>{
 });
 
 app.get('/drinks', (req,res) => {
-console.log(drinks)
-    res.render('drinks_index.ejs')
-})
+        console.log(drinks)
+    res.render(
+        'drinks_index.ejs',
+        {
+            allDrinks:drinks
+        }
+    );
+});
 
 
 
