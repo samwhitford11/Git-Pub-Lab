@@ -35,7 +35,8 @@ app.get('/drinks/:id', (req,res) => {
 
     });
 });
-
+ 
+//Food Route
 app.get('/food/:id', (req,res) => {
     const image = food[req.params.id].image
     const jpg = image.slice(0, image.length - 3) + 'png' 

@@ -13,8 +13,12 @@
         <h2>Drinks</h2>
       <ul>
         <% for(let i = 0; i < allDrinks.length; i++) { %>
+            <% const drink = allDrinks[i] %>
+            <% const drinkName = drink.name %>
+            <% const cap = drinkName.charAt(0).toUpperCase() + drinkName.slice(1)%>
             <li>
-                <a href="/drinks/<%=i%>"><%=allDrinks[i].name %></a>
+                <a href="/drinks/<%=i%>"><%=cap%></a>
+            
             </li>    
             <% } %>
 
