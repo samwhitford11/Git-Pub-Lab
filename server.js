@@ -22,10 +22,15 @@ app.get('/drinks', (req,res) => {
 });
 
 app.get('/drinks/:id', (req,res) => {
-    console.log(req.params.id);
+    const image = drinks[req.params.id].image
+    const jpg = image.slice(0, image.length - 3) + 'png'
+    console.log(jpg);
+
     res.render('drinks_show.ejs', {
         drink: drinks[req.params.id],
-        id: req.params.id
+        id: req.params.id,
+        img: jpg
+
     });
 });
 
