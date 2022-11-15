@@ -2,6 +2,7 @@ const { response } = require('express');
 const express = require('express');
 const app = express();
 const drinks = require("./models/drinks") // import drinks data
+const food = require("./models/food")
 
 const PORT = 3013;
 
@@ -16,18 +17,32 @@ app.get('/drinks', (req,res) => {
     res.render(
         'drinks_index.ejs',
         {
-            allDrinks:drinks
+            allDrinks:drinks,
+            allFood:food
         }
     );
 });
 
 app.get('/drinks/:id', (req,res) => {
     const image = drinks[req.params.id].image
-    const jpg = image.slice(0, image.length - 3) + 'png'
+    const jpg = image.slice(0, image.length - 3) + 'png' 
     console.log(jpg);
 
     res.render('drinks_show.ejs', {
         drink: drinks[req.params.id],
+        id: req.params.id,
+        img: jpg
+
+    });
+});
+
+app.get('/food/:id', (req,res) => {
+    const image = food[req.params.id].image
+    const jpg = image.slice(0, image.length - 3) + 'png' 
+    console.log(jpg);
+
+    res.render('food_show.ejs', {
+        food: food[req.params.id],
         id: req.params.id,
         img: jpg
 
