@@ -10,8 +10,9 @@ app.get('/', (req,res) =>{
     res.send('Welcome to the Gitpub App!');
 });
 
+//Drinks Route
 app.get('/drinks', (req,res) => {
-        console.log(drinks)
+        console.log('drinks',drinks)
     res.render(
         'drinks_index.ejs',
         {
@@ -21,9 +22,14 @@ app.get('/drinks', (req,res) => {
 });
 
 app.get('/drinks/:id', (req,res) => {
-    res.send(req.params.id);
-
+    console.log(req.params.id);
+    res.render('drinks_show.ejs', {
+        drink: drinks[req.params.id],
+        id: req.params.id
+    });
 });
+
+
 
 
 
